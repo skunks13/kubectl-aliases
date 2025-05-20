@@ -16,22 +16,22 @@ Some of the 800 generated aliases are:
 
 ```sh
 alias k='kubectl'
-alias kg='kubectl get'
-alias kgpo='kubectl get pod'
+alias kg='k get'
+alias kgpo='k get pod'
 
-alias ksysgpo='kubectl --namespace=kube-system get pod'
+alias ksysgpo='k --namespace=kube-system get pod'
 
-alias krm='kubectl delete'
-alias krmf='kubectl delete -f'
-alias krming='kubectl delete ingress'
-alias krmingl='kubectl delete ingress -l'
-alias krmingall='kubectl delete ingress --all-namespaces'
+alias krm='k delete'
+alias krmf='k delete -f'
+alias krming='k delete ingress'
+alias krmingl='k delete ingress -l'
+alias krmingall='k delete ingress --all-namespaces'
 
-alias kgsvcoyaml='kubectl get service -o=yaml'
-alias kgsvcwn='kubectl get service --watch --namespace'
-alias kgsvcslwn='kubectl get service --show-labels --watch --namespace'
+alias kgsvcoyaml='k get service -o=yaml'
+alias kgsvcwn='k get service --watch --namespace'
+alias kgsvcslwn='k get service --show-labels --watch --namespace'
 
-alias kgwf='kubectl get --watch -f'
+alias kgwf='k get --watch -f'
 ...
 ```
 
@@ -53,7 +53,7 @@ Add the following to your `.bashrc/.zshrc` file:
 ```
 
 > **Recommendation:** If you want to use GNU `watch`  command instead of
-> `kubectl [...] --watch`, run it like this:
+> `k [...] --watch`, run it like this:
 >
 >     [ -f ~/.kubectl_aliases ] && source \
 >        <(cat ~/.kubectl_aliases | sed -r 's/(kubectl.*) --watch/watch \1/g')
@@ -62,7 +62,7 @@ Add the following to your `.bashrc/.zshrc` file:
 `.zshrc` file:
 
 ```sh
-function kubectl() { echo "+ kubectl $@" >&2; command kubectl "$@"; }
+function kubectl() { echo "+ k $@" >&2; command k "$@"; }
 ```
 
 #### Fish
@@ -77,7 +77,7 @@ This actually adds the more powerful fish [abbreviations](https://fishshell.com/
 instead of aliases, so that pressing space shows the full command before execution.
 
 > **Recommendation:** If you want to use GNU `watch`  command instead of
-> `kubectl [...] --watch`, run it like this:
+> `k [...] --watch`, run it like this:
 >
 >     test -f ~/.kubectl_aliases.fish && source \
 >          (cat ~/.kubectl_aliases.fish | sed -r 's/(kubectl.*) --watch/watch \1/g' | psub)
